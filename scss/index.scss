@@ -1,0 +1,19 @@
+// Google Fonts
+@import url("https://fonts.googleapis.com/css?family=Shrikhand|Signika");
+@import "mixins";
+
+*, *:after, *:before {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+
+/* for small-viewport device */
+@media screen and (max-width: 768px) {
+  @import "mobile";
+}
+/* for large-viewport device */
+@media screen and (min-width: 769px) {
+  @import "pcandtablet";
+}
+
+@import "animatedicons.scss";
