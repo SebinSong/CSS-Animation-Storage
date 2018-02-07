@@ -9,15 +9,15 @@ body {
   $bg_linecolor: rgba(0,0,0,0.05);
 
   background:
-    repeating-linear-gradient(to right, transparent 0px, transparent 97px,
-    $bg_linecolor 97px, $bg_linecolor 100px),
-    repeating-linear-gradient(to bottom, transparent 0px, transparent 97px,
-    $bg_linecolor 97px, $bg_linecolor 100px),
-    repeating-linear-gradient(to right, transparent 0px, transparent 19px,
-    rgba(0,0,0,.1) 20px),
-    repeating-linear-gradient(to bottom, transparent 0px, transparent 19px,
-    rgba(0,0,0,.1) 20px),
-    linear-gradient(to bottom, $gradient_topleft 0%, $gradient_middle 35%, $gradient_bottomright 100%);
+    repeating-linear-gradient(to right, transparent 0px, transparent 48px,
+    $bg_linecolor 48px, $bg_linecolor 50px),
+    repeating-linear-gradient(to bottom, transparent 0px, transparent 48px,
+    $bg_linecolor 48px, $bg_linecolor 50px),
+    repeating-linear-gradient(to right, transparent 0px, transparent 9px,
+    rgba(0,0,0,.1) 10px),
+    repeating-linear-gradient(to bottom, transparent 0px, transparent 9px,
+    rgba(0,0,0,.1) 10px),
+    linear-gradient(to bottom, $gradient_topleft 0%, $gradient_middle 30%, $gradient_bottomright 100%);
 
   position: relative;
 
@@ -39,12 +39,9 @@ body {
   }
 
   div#section-container {
-
     position: absolute;
-    height: 100%; width: 55%;
-    min-width: 870px; min-height: inherit;
-    left: 50%;
-    transform: translateX(-50%);
+    height: 100%; width: 100%;
+
   }
 }
 
@@ -57,7 +54,7 @@ section {
   &#section-1 {
     $bgcolor: rgba(184,36,13,0.85);
 
-    width: 100%; height: 17.5%;
+    width: 100%;
     min-height: 150px;
     top: 0;
 
@@ -65,13 +62,13 @@ section {
     color: #fff; line-height: 1.1;
 
     div#title {
-      font-size: 42.5px; font-weight: 800;
+      font-size: 30px; font-weight: 800;
       letter-spacing: 2px;
       text-shadow: 5px 5px 10px rgba(0,0,0,0.2);
 
       position: absolute;
       top: 40%; transform: translateY(-50%);
-      top: 60%; left: 3%;
+      left: 3%;
 
       span {
         padding: 6px 10px;
@@ -89,27 +86,7 @@ section {
     }
 
     div#btns {
-      position: absolute;
-      width: 25%;
-      bottom: 45%; left: 51%;
-      display: flex;
-      justify-content: space-evenly;
-
-      > a {
-        background-color: #fff;
-        cursor: pointer;
-        color: $bgcolor;
-        padding: 5px 10px;
-        font-size: 17px;
-        border-radius: 5px;
-        box-shadow:
-         2px 2px 0px 0px rgba(255,255,255,0.3),
-         2px 2px 5px 3px rgba(0,0,0,0.1);
-
-         &:active {
-           transform: scale(0.97);
-         }
-      }
+      display: none;
     }
 
     div#bg {
@@ -132,8 +109,7 @@ section {
     $lg: rgba(35,43,43,0.75);
 
     bottom: 0;
-    width: 100%; height: 69%;
-    min-height: 500px;
+    width: 100%; height: calc(87% - 150px);
 
     .asset {
       display: none;
@@ -150,48 +126,65 @@ section {
       outline: 3px solid $lg;
       box-shadow: 0 0 50px 40px rgba(0,0,0,0.1);
     }
-    p#explanation {
-      position: absolute;
-      right: 20%; top: 30px;
-      color: $lg;
-      font-family: "Signika", fantasy, Sans-serif;
-      font-size: 18px; font-weight: 600;
-      text-align: right;
-
-      span {
-        $bg : rgba(255,255,255,0.8);
-        display: inline-block;
-        background-color: $bg;
-        margin-top: 7px;
-        padding: 0 5px;
-        box-shadow: 0 0 1px 1px $bg;
-      }
-    }
 
     div#wrapper {
       position: absolute;
-      width: 100%; height: 100%;
-      overflow: hidden;
+      width: 100%; height: calc(100% - 40px);
+      bottom: 40px;
+      overflow: scroll;
 
         p.explanation {
-          display: none;
+          position: relative;
+          margin: 20px auto;
+          width: 90%;
+          color: $lg;
+          font-family: "Signika", fantasy, Sans-serif;
+          font-size: 18px; font-weight: 600;
+          text-align: right;
+
+          span {
+            $bg : rgba(255,255,255,0.8);
+            display: inline-block;
+            background-color: $bg;
+            margin-top: 7px;
+            padding: 0 5px;
+            box-shadow: 0 0 1px 1px $bg;
+          }
         }
     }
+
+    p#explanation {
+      display: none;
+    }
+
+    div.title_mobile {
+      position: relative;
+      color: rgba(255,255,255,0.85);
+      font-family: "Signika", fantasy, Sans-serif;
+      font-size: 30px;
+      text-shadow: 3px 3px 8px rgba(0,0,0,0.5);
+      text-indent: 30px;
+      margin: 80px auto 50px;
+      overflow: hidden;
+      span {
+        position: relative;
+        animation: colorchange 5s linear infinite;
+      }
+    }
+
     div#all {
-      position: absolute;
-      width: 50%; height: 60%;
-      min-width: 480px; min-height: 360px;
-      top: 55%; left: 50%;
-      transform: translate(-50%, -50%);
+      position: relative;
+      width: 90%;
+      margin: 60px auto 20px;
       transition: left 0.5s ease-out;
 
       //specify grid properties
       display: grid;
       grid-template:
-      repeat(3, 100px) / repeat(4, 100px);
+      repeat(auto-fill, 100px) / repeat(auto-fill, 100px);
       justify-content: space-evenly;
       align-content: space-evenly;
-
+      grid-gap: 15px 15px;
 
       perspective: 500px;
 
@@ -250,19 +243,21 @@ section {
       }
 
       > div.grid_room {
-
+        width: 100px; height: 100px;
       }
     } // div#all
 
     div#onebyone {
       //border: 2px dashed #ff0000;
-      @include absoluteCenter;
-      width: 500px;
+      position: relative;
+
+      width: 90%;
+      margin: 80px auto 50px;
       transition: left 0.5s ease-out;
 
       display: grid;
-      left: 150%;
-      grid-template-columns: repeat(2, 150px);
+      grid-template-columns: 150px;
+      grid-row-gap: 30px;
       justify-content: space-evenly;
 
       > div {
@@ -358,11 +353,13 @@ section {
 
     div#footer {
       position: absolute;
-      width: 100%; min-height: 40px;
-      bottom: 10px;
-      color: rgba(0,0,0,0.55); text-shadow: 2px 2px 6px rgba(0,0,0,0.175);
+      width: 100%; height: 40px;
+      bottom: 0px;
+      background-color: rgba(0,0,0,0.95);
+      color: rgba(255,255,255,0.8); text-shadow: 2px 2px 6px rgba(0,0,0,0.175);
       font-size: 15px; font-family: "Signika", fantasy, sans-serif;
-      font-weight: 600; letter-spacing: -1px;
+      font-weight: 600;
+      box-shadow: 0 -5px 4px 4px rgba(0,0,0,0.15);
       > p {
         position: absolute;
         left: 50%; bottom: 2px;
@@ -391,4 +388,10 @@ section {
 @keyframes rotateicon {
   0% { transform: scale(1.1) rotate(0deg);}
   100% { transform: scale(1.1) rotate(360deg);}
+}
+
+@keyframes colorchange {
+  0% {color: rgba(255,255,255,0.85);} 25%{ color: rgba(255,255,0,0.85);}
+  50% {color: rgba(80,170,0,0.85);} 75%{ color: rgba(255,255,0,0.85);}
+  100% {color: rgba(255,255,255,0.85);}
 }

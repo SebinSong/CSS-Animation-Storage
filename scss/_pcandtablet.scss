@@ -177,6 +177,11 @@ section {
           display: none;
         }
     }
+
+    div.title_mobile {
+      display: none;
+    }
+
     div#all {
       position: absolute;
       width: 50%; height: 60%;
@@ -191,7 +196,6 @@ section {
       repeat(3, 100px) / repeat(4, 100px);
       justify-content: space-evenly;
       align-content: space-evenly;
-
 
       perspective: 500px;
 
